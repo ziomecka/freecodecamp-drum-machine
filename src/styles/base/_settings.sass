@@ -1,0 +1,25 @@
+/* Media queries  */
+
+$xs: 480px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$elg: 1920px;
+
+$screen-xs: 'only screen and (min-width: 1px)';
+$screen-sm: 'only screen and (min-width: #{$sm}';
+$screen-md: 'only screen and (min-width: #{$md}';
+$screen-lg: 'only screen and (min-width: #{$lg}';
+$screen-elg: 'only screen and (min-width: #{$elg}';
+
+$screen-max-xs: 'only screen and (max-width: #{$xs - 1}';
+$screen-max-sm: 'only screen and (max-width: #{$sm - 1}';
+$screen-max-md: 'only screen and (max-width: #{$md - 1}';
+$screen-max-lg: 'only screen and (max-width: #{$lg - 1}';
+$screen-max-elg: 'only screen and (max-width: #{$elg - 1}';
+
+$screen-only-xs: $screen-max-xs;
+$screen-only-sm: 'only screen and (min-width: #{$sm}) and (max-width: #{$md - 1}';
+$screen-only-md: 'only screen and (min-width: #{$md}) and (max-width: #{$lg - 1}';
+$screen-only-lg: $screen-lg;
+$screen-only-elg: $screen-elg;
