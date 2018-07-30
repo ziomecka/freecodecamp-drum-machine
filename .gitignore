@@ -2,3 +2,5 @@ node_modules
 freecodecamp*
 .env
 .env.example
+remove
+yarn*
