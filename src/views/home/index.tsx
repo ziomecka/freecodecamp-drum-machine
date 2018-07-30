@@ -1,6 +1,7 @@
 import React from 'react';
 import Drum from '../../components/Drum/index';
 
+require('../../styles/index.sass');
 export interface HomeViewProps {
 }
 
