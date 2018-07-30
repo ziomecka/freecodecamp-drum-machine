@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from 'react';
+import React from 'react';
 import ButtonModel from '../../models/button';
 
 const style = require('./style.sass');
@@ -6,7 +6,6 @@ const style = require('./style.sass');
 export interface ButtonProps {
   button: ButtonModel;
 }
-
 export interface ButtonState {
   display: string;
   className: string;
@@ -21,21 +20,22 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
       className: style.button
     };
     
-    this.props.button.keypressListener = (event: KeyboardEvent) => {
-      event.preventDefault();
-      if ((event.charCode || event.which || event.keyCode) === this.props.button.key) {
-        this.handleClick();
-      }
-    };
-
-    this.props.button.audioendedListener = () => {
-      this.setState({
-        display: this.props.button.title.toUpperCase(),
-        className: style.button
-      });
-    };
-    
     this.handleClick = this.handleClick.bind(this);
+  }
+  
+  audioendedListener(event: any) {
+    this.setState({
+      display: this.props.button.title.toUpperCase(),
+      className: style.button
+    });
+  
+  }
+  
+  keypressListener(event: any) {
+    event.preventDefault();
+    if ((event.charCode || event.which || event.keyCode) === this.props.button.key) {
+      this.handleClick();
+    }
   }
   
   handleClick() {
@@ -67,22 +67,22 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
     let $audio: HTMLMediaElement | null = this.$audio;
 
     if ($audio instanceof HTMLMediaElement) {
-      $audio.addEventListener('ended', this.props.button.audioendedListener);
+      $audio.addEventListener('ended', e => this.audioendedListener(e));
       $audio = null;
     }
     
-    document.addEventListener('keypress', this.props.button.keypressListener);
+    document.addEventListener('keypress', e => this.keypressListener(e));
   }
   
   componentWillUnmount() {
     let $audio: HTMLMediaElement | null = this.$audio;
   
     if ($audio instanceof HTMLMediaElement) {
-      $audio.removeEventListener('ended', this.props.button.audioendedListener);
+      $audio.removeEventListener('ended', e => this.audioendedListener(e));
       $audio = null;
     }
     
-    document.removeEventListener('keypress', this.props.button.keypressListener);
+    document.removeEventListener("keypress", e => this.keypressListener(e));
   }
 
   render() {

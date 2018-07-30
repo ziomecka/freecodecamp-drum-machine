@@ -2,8 +2,9 @@ export default interface ButtonModel {
   id: number;
   title: string;
   key: number;
-  keypressListener: KeyboardEvent;
-  audioendedListener: EventListenerOrEventListenerObject;
   soundDescription: string;
   soundFile: string;
+  audioendedListener?(event): EventListenerOrEventListenerObject;
+  keypressListener?(event: KeyboardEvent): EventListenerOrEventListenerObject
+
 }
