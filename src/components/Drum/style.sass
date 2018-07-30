@@ -1,2 +1,14 @@
+$button-height: 50px
+$button-width: 50px
+$button-margin: 10px
+
+$drum-max-height: $button-height * 3 + $button-margin * 2 * 3
+$drum-max-width: $button-width * 3 + $button-margin * 2 * 3
+
 .drum
     display: flex
+    justify-content: space-between
+    align-items: space-between
+    flex-wrap: wrap
+    max-width: $drum-max-width
+    max-height: $drum-max-height

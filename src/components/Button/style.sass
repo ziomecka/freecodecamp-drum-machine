@@ -1,10 +1,19 @@
 $button-width: 50px
 $button-margin: 10px
 $button-color: red
+$button-color-played: yellow
 
 .button
     display: flex
+    justify-content: center
+    align-items: center
     width: $button-width
     height: $button-width
+    max-width: $button-width
+    max-height: $button-width
     margin: $button-margin
     background-color: $button-color
+    &-played
+        background-color: $button-color-played   
+    & p
+        word-wrap: break-word
