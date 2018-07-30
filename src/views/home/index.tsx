@@ -23,7 +23,7 @@ export default class HomeView extends React.Component<HomeViewProps, HomeViewSta
 
     renderDrum() {
         return (
-            <Drum />
+            <Drum type={['heater', 'piano']} />
         );
     }
 }
