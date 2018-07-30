@@ -9,8 +9,8 @@ const Root: React.StatelessComponent<{}> = () => {
         <BrowserRouter>
             <Fragment>
                 <Helmet
-                    titleTemplate='React TypeScript Boilerplate - %s'
-                    defaultTitle='React TypeScript Boilerplate'
+                    titleTemplate='React Drum Machine'
+                    defaultTitle='React Drum Machine'
                 />
                 <main>
                     <Switch>
